@@ -3,14 +3,14 @@
 
 # 1. KMS and IAM/Secrets (foundation)
 module "kms" {
-  source = "./modules/kms"
+  source = "../../modules/kms"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
 }
 
 module "iam_secrets" {
-  source = "./modules/iam"
+  source = "../../modules/iam"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -24,7 +24,7 @@ module "iam_secrets" {
 
 # 2. Networking and Security
 module "networking" {
-  source = "./modules/networking"
+  source = "../../modules/networking"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -33,7 +33,7 @@ module "networking" {
 }
 
 module "security" {
-  source = "./modules/security"
+  source = "../../modules/security"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -44,7 +44,7 @@ module "security" {
 
 # 3. Storage and Data Lake
 module "storage" {
-  source = "./modules/s3"
+  source = "../../modules/s3"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -56,7 +56,7 @@ module "storage" {
 
 # 4. Glue and Catalog
 module "glue" {
-  source = "./modules/glue"
+  source = "../../modules/glue"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -70,7 +70,7 @@ module "glue" {
 # 5. Lake Formation (optional)
 module "lake_formation" {
   count = var.enable_lake_formation ? 1 : 0
-  source = "./modules/lake_formation"
+  source = "../../modules/lake_formation"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -82,7 +82,7 @@ module "lake_formation" {
 
 # 6. Athena
 module "athena" {
-  source = "./modules/athena"
+  source = "../../modules/athena"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -94,7 +94,7 @@ module "athena" {
 
 # 7. Redshift Serverless
 module "redshift" {
-  source = "./modules/redshift"
+  source = "../../modules/redshift"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -108,7 +108,7 @@ module "redshift" {
 
 # 8. Lambda Functions
 module "lambda" {
-  source = "./modules/lambda"
+  source = "../../modules/lambda"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -123,7 +123,7 @@ module "lambda" {
 
 # 9. API Gateway and Cognito
 module "cognito" {
-  source = "./modules/cognito"
+  source = "../../modules/cognito"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -131,7 +131,7 @@ module "cognito" {
 }
 
 module "api_gateway" {
-  source = "./modules/api_gateway"
+  source = "../../modules/api_gateway"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -144,7 +144,7 @@ module "api_gateway" {
 
 # 10. Eventing and Orchestration
 module "eventing" {
-  source = "./modules/eventing"
+  source = "../../modules/eventing"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -158,7 +158,7 @@ module "eventing" {
 # 11. SageMaker (optional)
 module "sagemaker" {
   count = var.enable_sagemaker ? 1 : 0
-  source = "./modules/sagemaker"
+  source = "../../modules/sagemaker"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -171,7 +171,7 @@ module "sagemaker" {
 # 12. QuickSight (optional)
 module "quicksight" {
   count = var.enable_quicksight ? 1 : 0
-  source = "./modules/quicksight"
+  source = "../../modules/quicksight"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -183,7 +183,7 @@ module "quicksight" {
 
 # 13. Web Hosting
 module "web_hosting" {
-  source = "./modules/web_hosting"
+  source = "../../modules/web_hosting"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
@@ -199,7 +199,7 @@ module "web_hosting" {
 
 # 14. Monitoring and Logging
 module "monitoring" {
-  source = "./modules/monitoring"
+  source = "../../modules/monitoring"
   
   name_prefix = local.name_prefix
   common_tags = local.common_tags
