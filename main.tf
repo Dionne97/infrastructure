@@ -212,3 +212,18 @@ module "monitoring" {
   
   depends_on = [module.storage, module.lambda, module.api_gateway, module.redshift, module.eventing]
 }
+# 14. Monitoring and Logging
+module "monitoring" {
+  source = "./modules/monitoring"
+  
+  name_prefix = local.name_prefix
+  common_tags = local.common_tags
+  bucket_names = module.storage.bucket_names
+  lambda_function_arns = module.lambda.function_arns
+  api_gateway_id = module.api_gateway.api_id
+  redshift_workgroup_name = module.redshift.workgroup_name
+  step_functions_arn = module.eventing.step_functions_arn
+  notification_email = var.notification_email
+  
+  depends_on = [module.storage, module.lambda, module.api_gateway, module.redshift, module.eventing]
+}
