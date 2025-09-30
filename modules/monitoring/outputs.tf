@@ -18,5 +18,4 @@ output "anomaly_detector_arn" {
   value       = aws_ce_anomaly_detector.main.arn
 }
 
-# Data source
-data "aws_region" "current" {}
+# Data source for outputs (using the one from main.tf)
